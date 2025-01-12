@@ -1,25 +1,28 @@
 using UnityEngine;
 
 // DoorManager
-public class SingleTon<T> : MonoBehaviour where T : MonoBehaviour 
+namespace my_Utility
 {
-    private static T instance;
-    public static T Instance
+    public class SingleTon<T> : MonoBehaviour where T : MonoBehaviour
     {
-        get
+        private static T instance;
+        public static T Instance
         {
-            instance = (T)FindAnyObjectByType(typeof(T));
-            if(instance == null)
+            get
             {
-                GameObject obj = new GameObject(typeof(T).Name, typeof(T));
-                instance = obj.GetComponent<T>();
+                instance = (T)FindAnyObjectByType(typeof(T));
+                if (instance == null)
+                {
+                    GameObject obj = new GameObject(typeof(T).Name, typeof(T));
+                    instance = obj.GetComponent<T>();
+                }
+                return instance;
             }
-            return instance;
         }
-    }
 
-    protected virtual void Awake()
-    {
-        DontDestroyOnLoad(this.gameObject);
-    }
+        protected virtual void Awake()
+        {
+            DontDestroyOnLoad(this.gameObject);
+        }
+    } 
 }

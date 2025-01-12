@@ -1,5 +1,5 @@
 {
-    "name": "com.KDH.my_Utility",
+    "name": "com.kdh.utility",
     "version": "1,0,0",
     "displayName": "My Common Code",
     "description": "This is an example package",
@@ -8,6 +8,6 @@
         "com.unity.cinemachine": "2.10.2"
     },
     "author":{
-        "name":"Name"
+        "name":"KDH"
     }
 }
